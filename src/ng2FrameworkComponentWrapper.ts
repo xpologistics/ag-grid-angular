@@ -35,6 +35,9 @@ export class Ng2FrameworkComponentWrapper implements FrameworkComponentWrapper {
         let wrapper: DynamicAgNg2Component = new DynamicAgNg2Component();
         methodList.forEach((methodName => {
             let methodProxy: Function = function () {
+                if (methodName === 'init'){
+
+                }
                 if (wrapper.getFrameworkComponentInstance()[methodName]) {
                     var componentRef = this.getFrameworkComponentInstance();
                     return wrapper.getFrameworkComponentInstance()[methodName].apply(componentRef, arguments)
@@ -78,7 +81,13 @@ abstract class BaseGuiComponent<P, T extends AgFrameworkComponent<P>> {
         this._frameworkComponentInstance = this._componentRef.instance;
         this._eGui = this._componentRef.location.nativeElement;
 
-        this._agAwareComponent.agInit(this._params);
+        if (!this._agAwareComponent.agInit){
+            throw Error ("Your custom ag-grid component doesn't have an agInit method. agInit is mandatory, in this " +
+                "method is where you might want to initialise your component based on the parameters provided. If you " +
+                "don't need any custom agInit logic, just provide an empty method")
+        }else{
+            this._agAwareComponent.agInit(this._params);
+        }
     }
 
     public getGui(): HTMLElement {
