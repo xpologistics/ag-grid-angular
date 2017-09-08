@@ -1,5 +1,5 @@
 import { ComponentRef, ViewContainerRef, ComponentFactoryResolver } from "@angular/core";
-import { FrameworkComponentWrapper, BaseComponentWrapper, WrapableInterface } from 'ag-grid';
+import { FrameworkComponentWrapper, BaseComponentWrapper, WrapableInterface } from 'ag-grid/main';
 export declare class Ng2FrameworkComponentWrapper extends BaseComponentWrapper<WrapableInterface> implements FrameworkComponentWrapper {
     private viewContainerRef;
     private componentFactoryResolver;

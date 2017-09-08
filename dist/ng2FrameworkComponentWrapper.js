@@ -12,7 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var main_1 = require("ag-grid/main");
-var ag_grid_1 = require("ag-grid");
+var ag_grid_1 = require("ag-grid/main");
 var Ng2FrameworkComponentWrapper = (function (_super) {
     __extends(Ng2FrameworkComponentWrapper, _super);
     function Ng2FrameworkComponentWrapper() {
